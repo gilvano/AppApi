@@ -4,7 +4,13 @@ const app = express();
 app.use(json());
 
 app.get("/", (request, response) => {
-  return response.json({ message: "Hello, TypeScript!!!" });
+  console.log('get request');
+  return response.json({ message: "Hello get, TypeScript!!!" });
+});
+
+app.post("/", (request, response) => {
+  console.log('post request');
+  return response.json({ message: "Hello post, TypeScript!!!" });
 });
 
 app.listen(3000, () => {
