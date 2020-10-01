@@ -1,14 +1,40 @@
 version: "3.7"
  
 services:
+  db-postgres:
+    container_name: db-postgres 
+    image: postgres:9.6.19-alpine
+    ports:
+      - 5432:5432
+    environment: 
+      POSTGRES_DB: entregadb
+      POSTGRES_USER: entregadb
+      POSTGRES_PASSWORD: entregadb
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    networks:
+      - api-connect
+    
   node-ts-api:
+    container_name: node-ts-api
     build:
       context: .
       dockerfile: Dockerfile.dev
     container_name: controle-entrega-api
     volumes:
       - ./src:/app/src
+    depends_on:
+      - db-postgres
     ports:
       - "3000:3000"
       - "3001:3001"
     command: npm run dev
+    networks:
+        - api-connect
+
+volumes:
+  database-data: {}
+
+networks:
+  api-connect:
+    driver: bridge
