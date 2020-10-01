@@ -1,0 +1,14 @@
+version: "3.7"
+ 
+services:
+  node-ts-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: controle-entrega-api
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    command: npm run dev
