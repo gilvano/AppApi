@@ -6,12 +6,17 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "dev": "ts-node-dev --inspect=3001 --respawn --transpile-only src/index.ts"
+    "dev": "ts-node-dev --inspect=3001 --respawn --transpile-only src/index.ts",
+    "typeorm": "./node_modules/.bin/typeorm "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "class-validator": "^0.12.2",
+    "express": "^4.17.1",
+    "pg": "^8.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.28"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",
