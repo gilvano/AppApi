@@ -12,6 +12,7 @@ import { Length, IsNotEmpty } from "class-validator"
 @Entity()
 @Unique(["username"])
 export class User {
+  
   @PrimaryGeneratedColumn()
   id: number;
 
