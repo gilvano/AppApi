@@ -1,28 +1,30 @@
 {
-  "name": "controledeentregaapi",
-  "version": "1.0.0",
-  "description": "Um app para controle de entrega de encomendas",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "dev": "ts-node-dev --inspect=3001 --respawn --transpile-only src/index.ts",
-    "typeorm": "./node_modules/.bin/typeorm "
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "class-validator": "^0.12.2",
-    "express": "^4.17.1",
-    "pg": "^8.3.3",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.28"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.8",
-    "@types/node": "^14.11.2",
-    "ts-node": "^9.0.0",
-    "ts-node-dev": "^1.0.0-pre.63",
-    "typescript": "^4.0.3"
-  }
+   "name": "controledeentregaapi",
+   "version": "1.0.0",
+   "type": "module",
+   "description": "Um app para controle de entrega de encomendas",
+   "main": "./dist/server.js",
+   "scripts": {
+      "build": "tsc",
+      "start": "ts-node src/server.ts",
+      "dev": "ts-node-dev --inspect=3001 --respawn --transpile-only src/server.ts",
+      "prod": "tsc && node ./build/app.js",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+   },
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "class-validator": "^0.12.2",
+      "express": "^4.17.1",
+      "pg": "^8.3.3",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.28"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.8",
+      "@types/node": "^14.11.2",
+      "ts-node": "^9.0.0",
+      "ts-node-dev": "^1.0.0-pre.63",
+      "typescript": "^4.0.3"
+   }
 }
