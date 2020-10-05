@@ -1,7 +1,7 @@
 import { Router } from "express";
 import UserController from "../controllers/user-controller";
-// import { checkJwt } from "../middlewares/checkJwt";
-// import { checkRole } from "../middlewares/checkRole";
+import { checkJwt } from "../middlewares/checkJwt";
+import { checkRole } from "../middlewares/checkRole";
 
   const userRouter = Router();
 
@@ -9,35 +9,35 @@ import UserController from "../controllers/user-controller";
   //router.get("/", [checkJwt, checkRole(["ADMIN"])], UserController.listAll);
   userRouter.get(
     "/",  
-//     [checkJwt, checkRole(["ADMIN"])],
+    [checkJwt, checkRole(["ADMIN"])],
     UserController.listAll
   );
 
   // Get one user
   userRouter.get(
     "/:id([0-9]+)",
-//     [checkJwt, checkRole(["ADMIN"])],
+     [checkJwt, checkRole(["ADMIN"])],
     UserController.getOneById
   );
 
   //Create a new user
   userRouter.post(
     "/", 
-//    [checkJwt, checkRole(["ADMIN"])],
+    [checkJwt, checkRole(["ADMIN"])],
     UserController.newUser
   );
 
   //Edit one user
   userRouter.patch(
     "/:id([0-9]+)",
-//     [checkJwt, checkRole(["ADMIN"])],    
+     [checkJwt, checkRole(["ADMIN"])],    
     UserController.editUser
   );
 
   //Delete one user
   userRouter.delete(
     "/:id([0-9]+)",
-    //[checkJwt, checkRole(["ADMIN"])],
+    [checkJwt, checkRole(["ADMIN"])],
     UserController.deleteUser
   );
 
