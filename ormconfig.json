@@ -6,8 +6,8 @@
    "username": "entregadb",
    "password": "entregadb",
    "database": "entregadb",
-   "synchronize": true,
-   "logging": true,
+   "synchronize": false,
+   "logging": false,
    "entities": [
     "src/models/**/*.ts"
     ],
