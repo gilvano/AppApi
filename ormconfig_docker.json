@@ -1,0 +1,23 @@
+{
+   "name": "default",
+   "type": "postgres",
+   "host": "db-postgres",
+   "port": 5432,
+   "username": "entregadb",
+   "password": "entregadb",
+   "database": "entregadb",
+   "synchronize": true,
+   "logging": true,
+   "entities": [
+    "src/models/**/*.ts"
+    ],
+   "migrations": [
+      "src/database/migrations/**/*.ts"
+    ],
+   "cli":{
+    "migrationsDir": [
+        "src/database/migrations/"
+      ],
+    "entitiesDir": "src/models"
+    }
+  }

@@ -4,5 +4,6 @@ WORKDIR /app
  
 ADD package*.json ./
 ADD tsconfig.json ./
+ADD ormconfig_docker.json ./ormconfig.json
  
 RUN npm i

@@ -11,7 +11,7 @@ class AuthController {
     //Check if username and password are set
     let { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).send('Usuário ou senha não informados');
+      res.status(400).send('Usuário ou senha não informado');
     }
 
     //Get user from database
@@ -38,7 +38,8 @@ class AuthController {
 
     //Send the jwt in the response
     res.send({
-      "result": "logado",
+      "username": user.username,
+      "role": user.role,
       "token":token
     });
   };

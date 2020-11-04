@@ -9,7 +9,7 @@ class UserController {
     //Get users from database
     const userRepository = getRepository(User);
     const users = await userRepository.find({
-      select: ["id", "username", "role"], //We dont want to send the passwords on response
+      select: ["id", "username", "password", "role"], //We dont want to send the passwords on response
     });
 
     //Send the users object
@@ -24,7 +24,7 @@ class UserController {
     const userRepository = getRepository(User);
     try {
       const user = await userRepository.findOneOrFail(id, {
-        select: ["id", "username", "role"], //We dont want to send the password on response
+        select: ["id", "username", "password", "role"], //We dont want to send the password on response
       });
       res.send(user);
     } catch (error) {
