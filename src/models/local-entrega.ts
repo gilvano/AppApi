@@ -18,11 +18,10 @@ export class LocalEntrega {
   @Length(2, 100)
   descricao: string;
 
-  @Column()
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "create_at" })
   createdAt: Date;
 
-  @Column()
-  @UpdateDateColumn()
+  
+  @UpdateDateColumn({ name: "update_at" })
   updatedAt: Date;
 }
