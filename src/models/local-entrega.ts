@@ -20,7 +20,6 @@ export class LocalEntrega {
 
   @CreateDateColumn({ name: "create_at" })
   createdAt: Date;
-
   
   @UpdateDateColumn({ name: "update_at" })
   updatedAt: Date;
