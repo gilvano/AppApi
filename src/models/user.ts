@@ -4,12 +4,12 @@ import {
   Column,
   Unique,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn, BeforeInsert, BeforeUpdate
 } from "typeorm";
 import { Length, IsNotEmpty } from "class-validator";
 import * as bcrypt from "bcryptjs";
 
-@Entity()
+@Entity("users")
 @Unique(["username"])
 export class User {
   
@@ -28,14 +28,15 @@ export class User {
   @IsNotEmpty()
   role: string;
 
-  @Column()
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "create_at" })
   createdAt: Date;
 
-  @Column()
-  @UpdateDateColumn()
+  
+  @UpdateDateColumn({ name: "update_at" })
   updatedAt: Date;
 
+  @BeforeInsert()
+  @BeforeUpdate()
   hashPassword() {
     this.password = bcrypt.hashSync(this.password, 8);
   }
